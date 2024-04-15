@@ -1,24 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+// App.js
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Asegúrate de importar Routes
+import Header from './components/Header/Header.js';
+import Inicio from './Inicio/Inicio.js';
+import RegistroForm from './components/Registro/RegistroForm.js';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <Header />
+        <Routes> {/* Envuelve tus rutas con Routes */}
+          <Route path="/" element={<Inicio />} /> {/* Usa el atributo 'element' para especificar el componente */}
+          <Route path="/registro" element={<RegistroForm />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
